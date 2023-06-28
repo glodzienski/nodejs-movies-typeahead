@@ -1,0 +1,44 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ablefy
+    ports:
+      - '5440:5432'
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: backend-ablefy
+    container_name: backend-ablefy
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    env_file: .env.docker
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - app-network
+#    command: >
+#      sh -c "npx prisma migrate dev
+#      && npm start"
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+  db:
+    driver: local
