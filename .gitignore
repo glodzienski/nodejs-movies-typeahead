@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/backend-ablefy/node_modules
+/backend/node_modules
 /frontend-typeahead/node_modules
 
 # testing

@@ -19,8 +19,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: backend-ablefy
-    container_name: backend-ablefy
+    image: backend
+    container_name: backend
     ports:
       - "5000:5000"
     depends_on:

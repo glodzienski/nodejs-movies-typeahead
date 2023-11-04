@@ -1,7 +1,7 @@
 {
   "readOnlyFiles": ["README.md"],
   "hiddenFiles": [
-    "backend-ablefy/node_modules",
+    "backend/node_modules",
     "frontend-typeahead/node_modules"
   ],
   "verification": {
